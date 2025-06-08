@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
--->
-
-
-
-<root>
-    
-</root>
+<contact-book>
+	<contact>
+		<contact-id>1</contact-id>
+		<first-name>Kush</first-name>
+		<last-name>Agarwal</last-name>
+		<phone>+919892598604</phone>
+		<email>kush@gmail.com</email>
+		<address>Ghatkopar</address>
+	</contact>
+	<contact>
+		<contact-id>2</contact-id>
+		<first-name>Amit</first-name>
+		<last-name>Manna</last-name>
+		<phone>+918097062633</phone>
+		<email>amit@gmail.com</email>
+		<address>Thane</address>
+	</contact>
+</contact-book>
 
