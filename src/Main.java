@@ -1,5 +1,6 @@
 
-import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
+import models.ContactList;
 import util.Util;
 
 /*
@@ -7,7 +8,7 @@ import util.Util;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-/**a
+/**
  *
  * @author admin
  */
@@ -15,6 +16,7 @@ public class Main extends javax.swing.JFrame {
     
     String[] columnNames = {"Id" , "FirstName" , "LastName" ,"Phone" , "Email" , "Address"};
     
+  
     /**
      * Creates new form ContactManagerForm
      */
@@ -36,7 +38,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        contactDetails.setModel(new javax.swing.table.DefaultTableModel(Util.get2DArray(Util.getContactsFromFile()),columnNames)
+        contactDetails.setModel(new javax.swing.table.DefaultTableModel(Util.get2DArray(ContactList.contacts),columnNames)
         );
         contactDetails.setEnabled(false);
         contactDetails.setName("contactDetails"); // NOI18N
@@ -103,4 +105,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable contactDetails;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    
+      public void updateTable(){
+        
+          contactDetails.setModel(new DefaultTableModel( Util.get2DArray(ContactList.contacts), columnNames));
+          
+        
+    }
 }
