@@ -173,12 +173,12 @@ public class Main extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        new ContactForm().setVisible(true);
+        new ContactForm(this).setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
-        new ContactForm(true , selectedContact ).setVisible(true);
+        new ContactForm(this ,true , selectedContact ).setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
     /**

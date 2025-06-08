@@ -1,4 +1,5 @@
 
+import javax.swing.JFrame;
 import models.Contact;
 
 /*
@@ -14,13 +15,17 @@ import models.Contact;
 public class ContactForm extends javax.swing.JFrame {
 
     private Contact contact;
+    private JFrame frame ;
+    private boolean editMode;
     /**
      * Creates new form AddContactFrame
      */
-    public ContactForm(boolean editMode , Contact contact) {
+    public ContactForm(JFrame main ,boolean editMode , Contact contact) {
         
         initComponents();
         setLocationRelativeTo(null);
+        this.frame = main;
+        this.editMode = editMode;
         
         if(editMode){
             this.contact = contact;
@@ -38,9 +43,12 @@ public class ContactForm extends javax.swing.JFrame {
         }
     }
     
-    public ContactForm() {
+    public ContactForm(JFrame main) {
         initComponents();
         setLocationRelativeTo(null);
+        
+        this.frame = main;
+        this.editMode = false;
         this.contact = null;
     }
 
