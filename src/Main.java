@@ -1,6 +1,7 @@
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import models.Contact;
 import models.ContactList;
 import util.Util;
 
@@ -15,7 +16,7 @@ import util.Util;
 public class Main extends javax.swing.JFrame {
 
     String[] columnNames = {"Id", "FirstName", "LastName", "Phone", "Email", "Address"};
-
+    Contact selectedContact;
     /**
      * Creates new form ContactManagerForm
      */
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
+        this.selectedContact = null;
     }
 
     /**
@@ -76,6 +78,11 @@ public class Main extends javax.swing.JFrame {
         editBtn.setText("Edit Contact");
         editBtn.setEnabled(false);
         editBtn.setPreferredSize(new java.awt.Dimension(100, 30));
+        editBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtnActionPerformed(evt);
+            }
+        });
 
         addBtn.setText("Add Contact");
         addBtn.setPreferredSize(new java.awt.Dimension(100, 30));
@@ -136,10 +143,13 @@ public class Main extends javax.swing.JFrame {
         if (index != -1) {
             editBtn.setEnabled(true);
             deleteBtn.setEnabled(true);
+            this.selectedContact = ContactList.contacts.get(index);
+            
         } else {
             contactDetails.clearSelection();
             editBtn.setEnabled(false);
             deleteBtn.setEnabled(false);
+            selectedContact = null;
         }
 
 
@@ -150,6 +160,7 @@ public class Main extends javax.swing.JFrame {
         contactDetails.clearSelection();
         editBtn.setEnabled(false);
         deleteBtn.setEnabled(false);
+        selectedContact = null;
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
@@ -157,12 +168,18 @@ public class Main extends javax.swing.JFrame {
         contactDetails.clearSelection();
         editBtn.setEnabled(false);
         deleteBtn.setEnabled(false);
+        selectedContact = null;
     }//GEN-LAST:event_jScrollPane1MouseClicked
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         new ContactForm().setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
+
+    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+        // TODO add your handling code here:
+        new ContactForm(true , selectedContact ).setVisible(true);
+    }//GEN-LAST:event_editBtnActionPerformed
 
     /**
      * @param args the command line arguments
