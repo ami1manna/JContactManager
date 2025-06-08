@@ -1,4 +1,5 @@
 
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.ContactList;
 import util.Util;
@@ -7,16 +8,14 @@ import util.Util;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author admin
  */
 public class Main extends javax.swing.JFrame {
-    
-    String[] columnNames = {"Id" , "FirstName" , "LastName" ,"Phone" , "Email" , "Address"};
-    
-  
+
+    String[] columnNames = {"Id", "FirstName", "LastName", "Phone", "Email", "Address"};
+
     /**
      * Creates new form ContactManagerForm
      */
@@ -43,18 +42,36 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(580, 359));
 
+        jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane1MouseClicked(evt);
+            }
+        });
+
         contactDetails.setModel(new javax.swing.table.DefaultTableModel(Util.get2DArray(ContactList.contacts),columnNames)
         );
         contactDetails.setName("contactDetails"); // NOI18N
         contactDetails.setRowHeight(25);
+        contactDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contactDetailsMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(contactDetails);
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 153));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         deleteBtn.setText("Delete");
+        deleteBtn.setEnabled(false);
         deleteBtn.setPreferredSize(new java.awt.Dimension(100, 30));
 
         editBtn.setText("Edit Contact");
+        editBtn.setEnabled(false);
         editBtn.setPreferredSize(new java.awt.Dimension(100, 30));
 
         addBtn.setText("Add Contact");
@@ -102,6 +119,38 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void contactDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactDetailsMouseClicked
+        // TODO add your handling code here:
+        JTable table = (JTable) evt.getSource();
+        int index = table.rowAtPoint(evt.getPoint());
+
+       
+        if (index != -1) {
+            editBtn.setEnabled(true);
+            deleteBtn.setEnabled(true);
+        } else {
+            contactDetails.clearSelection();
+            editBtn.setEnabled(false);
+            deleteBtn.setEnabled(false);
+        }
+
+
+    }//GEN-LAST:event_contactDetailsMouseClicked
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // TODO add your handling code here:
+        contactDetails.clearSelection();
+        editBtn.setEnabled(false);
+        deleteBtn.setEnabled(false);
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
+        // TODO add your handling code here:
+        contactDetails.clearSelection();
+        editBtn.setEnabled(false);
+        deleteBtn.setEnabled(false);
+    }//GEN-LAST:event_jScrollPane1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -136,10 +185,8 @@ public class Main extends javax.swing.JFrame {
                 new Main().setVisible(true);
             }
         });
-        
+
 //        System.out.println(Arrays.deepToString());
-        
-    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,11 +198,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    
-      public void updateTable(){
-        
-          contactDetails.setModel(new DefaultTableModel( Util.get2DArray(ContactList.contacts), columnNames));
-          
-        
+    public void updateTable() {
+
+        contactDetails.setModel(new DefaultTableModel(Util.get2DArray(ContactList.contacts), columnNames));
+
     }
 }
