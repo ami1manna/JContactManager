@@ -1,6 +1,8 @@
 
+import java.util.Random;
 import javax.swing.JFrame;
 import models.Contact;
+import models.ContactList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,16 +17,17 @@ import models.Contact;
 public class ContactForm extends javax.swing.JFrame {
 
     private Contact contact;
-    private JFrame frame ;
+    private Main frame ;
     private boolean editMode;
     /**
      * Creates new form AddContactFrame
      */
-    public ContactForm(JFrame main ,boolean editMode , Contact contact) {
+    public ContactForm(Main main ,boolean editMode , Contact contact) {
         
         initComponents();
         setLocationRelativeTo(null);
         this.frame = main;
+        
         this.editMode = editMode;
         
         if(editMode){
@@ -43,7 +46,7 @@ public class ContactForm extends javax.swing.JFrame {
         }
     }
     
-    public ContactForm(JFrame main) {
+    public ContactForm(Main main) {
         initComponents();
         setLocationRelativeTo(null);
         
@@ -256,6 +259,32 @@ public class ContactForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        if(editMode){
+         // update   
+         contact.setFirstName(txtFirstName.getText());
+         contact.setLastName(txtLastName.getText());
+         contact.setPhone(txtPhone.getText());
+         contact.setEmail(txtEmail.getText());
+         contact.setAddress(txtAddress.getText());
+            ContactList.update(contact);
+            frame.updateTable();
+        }else{
+         // insert
+         Random rand = new Random();
+         
+         contact = new Contact(
+                 rand.nextInt(0,1000000),
+                 txtFirstName.getText(),
+                 txtLastName.getText(),
+                 txtPhone.getText(),
+                 txtEmail.getText(),
+                 txtAddress.getText()
+         );
+         
+         ContactList.create(contact);
+         frame.updateTable();
+        }
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

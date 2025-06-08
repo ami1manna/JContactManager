@@ -66,7 +66,7 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(contactDetails);
 
-        jPanel1.setBackground(new java.awt.Color(102, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
