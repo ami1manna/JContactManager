@@ -48,6 +48,11 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JContactManager");
         setMinimumSize(new java.awt.Dimension(580, 359));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -203,6 +208,11 @@ public class Main extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+         Util.setContactsToFile(ContactList.contacts);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

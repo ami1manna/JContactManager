@@ -34,7 +34,7 @@ public class ContactForm extends javax.swing.JFrame {
             this.contact = contact;
             jLabel1.setText("Update Existing Contact");
             jButton1.setText("Update");
-            System.out.println(this.contact);
+            
             
             txtFirstName.setText(contact.getFirstName());
             txtLastName.setText(contact.getLastName());
