@@ -20,7 +20,9 @@ public class Main extends javax.swing.JFrame {
      * Creates new form ContactManagerForm
      */
     public Main() {
+        
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -40,6 +42,7 @@ public class Main extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JContactManager");
         setMinimumSize(new java.awt.Dimension(580, 359));
 
         jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,6 +79,11 @@ public class Main extends javax.swing.JFrame {
 
         addBtn.setText("Add Contact");
         addBtn.setPreferredSize(new java.awt.Dimension(100, 30));
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,6 +158,11 @@ public class Main extends javax.swing.JFrame {
         editBtn.setEnabled(false);
         deleteBtn.setEnabled(false);
     }//GEN-LAST:event_jScrollPane1MouseClicked
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+        new AddContactFrame().setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
     /**
      * @param args the command line arguments
