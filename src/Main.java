@@ -161,7 +161,7 @@ public class Main extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        new AddContactFrame().setVisible(true);
+        new ContactForm().setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     /**

@@ -7,12 +7,12 @@
  *
  * @author admin
  */
-public class AddContactFrame extends javax.swing.JFrame {
+public class ContactForm extends javax.swing.JFrame {
 
     /**
      * Creates new form AddContactFrame
      */
-    public AddContactFrame() {
+    public ContactForm() {
         initComponents();
         setLocationRelativeTo(null);
     }
