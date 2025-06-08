@@ -1,4 +1,5 @@
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.Contact;
@@ -17,11 +18,12 @@ public class Main extends javax.swing.JFrame {
 
     String[] columnNames = {"Id", "FirstName", "LastName", "Phone", "Email", "Address"};
     Contact selectedContact;
+
     /**
      * Creates new form ContactManagerForm
      */
     public Main() {
-        
+
         initComponents();
         setLocationRelativeTo(null);
         this.selectedContact = null;
@@ -74,6 +76,11 @@ public class Main extends javax.swing.JFrame {
         deleteBtn.setText("Delete");
         deleteBtn.setEnabled(false);
         deleteBtn.setPreferredSize(new java.awt.Dimension(100, 30));
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
 
         editBtn.setText("Edit Contact");
         editBtn.setEnabled(false);
@@ -139,12 +146,11 @@ public class Main extends javax.swing.JFrame {
         JTable table = (JTable) evt.getSource();
         int index = table.rowAtPoint(evt.getPoint());
 
-       
         if (index != -1) {
             editBtn.setEnabled(true);
             deleteBtn.setEnabled(true);
             this.selectedContact = ContactList.contacts.get(index);
-            
+
         } else {
             contactDetails.clearSelection();
             editBtn.setEnabled(false);
@@ -178,8 +184,25 @@ public class Main extends javax.swing.JFrame {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
-        new ContactForm(this ,true , selectedContact ).setVisible(true);
+        new ContactForm(this, true, selectedContact).setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+
+        int response = JOptionPane.showConfirmDialog(this, "Are You Sure You want to Delete the Contact", "DELETE CONTACT", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            ContactList.delete(selectedContact);
+            this.updateTable();
+
+        }
+        contactDetails.clearSelection();
+        editBtn.setEnabled(false);
+        deleteBtn.setEnabled(false);
+        selectedContact = null;
+
+
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
     /**
      * @param args the command line arguments
