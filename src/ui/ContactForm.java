@@ -288,7 +288,7 @@ public class ContactForm extends javax.swing.JFrame {
 
             return false;
         } else {
-            return false;
+            return true;
         }
     }
     private void txtPhoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyReleased

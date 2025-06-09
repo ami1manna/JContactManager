@@ -272,15 +272,15 @@ public class Main extends javax.swing.JFrame {
 
     private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
        
-        System.out.println((String)sortComboBox.getSelectedItem());
+        
         String selected = (String)sortComboBox.getSelectedItem();
         
         switch(selected){
-            case "First Name": SortUtil.bubbleSort(ContactComparators.byFirstNameAsc);
+            case "First Name": SortUtil.quickSort(0 , ContactList.contacts.size() - 1 ,ContactComparators.byFirstNameAsc);
             break;
-            case "Last Name": SortUtil.bubbleSort(ContactComparators.byLastNameAsc);
+            case "Last Name": SortUtil.quickSort(0 , ContactList.contacts.size() - 1 ,ContactComparators.byLastNameAsc);
             break;
-            case "Email": SortUtil.bubbleSort(ContactComparators.byEmailAsc);
+            case "Email": SortUtil.quickSort(0 , ContactList.contacts.size() - 1 , ContactComparators.byEmailAsc);
             break;
             default:  
         };
