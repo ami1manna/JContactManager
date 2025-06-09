@@ -1,11 +1,11 @@
 <contact-book>
 	<contact>
-		<contact-id>1</contact-id>
-		<first-name>Kush</first-name>
+		<contact-id>132450</contact-id>
+		<first-name>Dhwani</first-name>
 		<last-name>Agarwal</last-name>
-		<phone>+919892598604</phone>
-		<email>kush@gmail.com</email>
-		<address>Ghatkopar</address>
+		<phone>123456789</phone>
+		<email>adwdaddadd</email>
+		<address>abcabcbacbabcbacbcbcb</address>
 	</contact>
 	<contact>
 		<contact-id>2</contact-id>
@@ -16,14 +16,6 @@
 		<address>Thane</address>
 	</contact>
 	<contact>
-		<contact-id>132450</contact-id>
-		<first-name>Dhwani</first-name>
-		<last-name>Agarwal</last-name>
-		<phone>123456789</phone>
-		<email>adwdaddadd</email>
-		<address>abcabcbacbabcbacbcbcb</address>
-	</contact>
-	<contact>
 		<contact-id>817045</contact-id>
 		<first-name>Pampa</first-name>
 		<last-name>Manna</last-name>
@@ -32,36 +24,11 @@
 		<address>G2 Evergreen Apt</address>
 	</contact>
 	<contact>
-		<contact-id>766398</contact-id>
-		<first-name>sadsad</first-name>
-		<last-name>sadasd</last-name>
-		<phone>asdnasdn</phone>
-		<email></email>
-		<address>sdadasdsad
-</address>
-	</contact>
-	<contact>
-		<contact-id>553085</contact-id>
-		<first-name></first-name>
-		<last-name></last-name>
-		<phone></phone>
-		<email></email>
-		<address></address>
-	</contact>
-	<contact>
-		<contact-id>101026</contact-id>
-		<first-name>bjbj</first-name>
-		<last-name></last-name>
-		<phone></phone>
-		<email></email>
-		<address></address>
-	</contact>
-	<contact>
-		<contact-id>499314</contact-id>
-		<first-name></first-name>
-		<last-name></last-name>
-		<phone>jbj</phone>
-		<email></email>
-		<address></address>
+		<contact-id>1</contact-id>
+		<first-name>Kush</first-name>
+		<last-name>Agarwal</last-name>
+		<phone>+919892598604</phone>
+		<email>kush@gmail.com</email>
+		<address>Ghatkopar</address>
 	</contact>
 </contact-book>

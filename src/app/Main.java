@@ -9,7 +9,9 @@ import javax.swing.table.DefaultTableModel;
 import models.Contact;
 import models.ContactList;
 import ui.ContactForm;
+import util.ContactComparators;
 import util.Util;
+import util.SortUtil;
 
 
  
@@ -52,7 +54,7 @@ public class Main extends javax.swing.JFrame {
         editBtn = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        sortComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -141,7 +143,12 @@ public class Main extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 102));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sortComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "First Name", "Last Name", "Email" }));
+        sortComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Sort By");
@@ -159,7 +166,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
@@ -167,7 +174,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(7, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addContainerGap())
@@ -263,6 +270,24 @@ public class Main extends javax.swing.JFrame {
          Util.setContactsToFile(ContactList.contacts);
     }//GEN-LAST:event_formWindowClosing
 
+    private void sortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBoxActionPerformed
+       
+        System.out.println((String)sortComboBox.getSelectedItem());
+        String selected = (String)sortComboBox.getSelectedItem();
+        
+        switch(selected){
+            case "First Name": SortUtil.bubbleSort(ContactComparators.byFirstNameAsc);
+            break;
+            case "Last Name": SortUtil.bubbleSort(ContactComparators.byLastNameAsc);
+            break;
+            case "Email": SortUtil.bubbleSort(ContactComparators.byEmailAsc);
+            break;
+            default:  
+        };
+        
+        updateTable();
+    }//GEN-LAST:event_sortComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -274,7 +299,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -306,12 +331,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable contactDetails;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JButton editBtn;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> sortComboBox;
     // End of variables declaration//GEN-END:variables
 
     public void updateTable() {
