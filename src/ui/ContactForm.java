@@ -1,8 +1,13 @@
+package ui;
 
+
+import app.Main;
 import java.util.Random;
-import javax.swing.JFrame;
 import models.Contact;
 import models.ContactList;
+
+
+ 
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
