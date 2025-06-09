@@ -1,60 +1,57 @@
 package ui;
 
-
 import app.Main;
+import java.awt.Color;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import models.Contact;
 import models.ContactList;
-
-
- 
+import util.ValidationUtil;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author admin
  */
-
 public class ContactForm extends javax.swing.JFrame {
 
     private Contact contact;
-    private Main frame ;
+    private Main frame;
     private boolean editMode;
+    private boolean errorInFields = true;
+
     /**
      * Creates new form AddContactFrame
      */
-    public ContactForm(Main main ,boolean editMode , Contact contact) {
-        
+    public ContactForm(Main main, boolean editMode, Contact contact) {
+
         initComponents();
         setLocationRelativeTo(null);
         this.frame = main;
-        
+
         this.editMode = editMode;
-        
-        if(editMode){
+
+        if (editMode) {
             this.contact = contact;
             contactFormTitle.setText("Update Existing Contact");
             saveBtn.setText("Update");
-            
-            
+
             txtFirstName.setText(contact.getFirstName());
             txtLastName.setText(contact.getLastName());
             txtPhone.setText(contact.getPhone());
             txtEmail.setText(contact.getEmail());
             txtAddress.setText(contact.getAddress());
-            
-            
+
         }
     }
-    
+
     public ContactForm(Main main) {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         this.frame = main;
         this.editMode = false;
         this.contact = null;
@@ -98,9 +95,9 @@ public class ContactForm extends javax.swing.JFrame {
         upperPanelLayout.setHorizontalGroup(
             upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(upperPanelLayout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addComponent(contactFormTitle)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         upperPanelLayout.setVerticalGroup(
             upperPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +113,9 @@ public class ContactForm extends javax.swing.JFrame {
         firstNameLabel.setText("First Name");
 
         txtFirstName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFirstNameActionPerformed(evt);
+        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFirstNameKeyReleased(evt);
             }
         });
 
@@ -126,9 +123,9 @@ public class ContactForm extends javax.swing.JFrame {
         lastNameLabel.setText("Last Name");
 
         txtLastName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameActionPerformed(evt);
+        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLastNameKeyReleased(evt);
             }
         });
 
@@ -136,9 +133,9 @@ public class ContactForm extends javax.swing.JFrame {
         phoneLabel.setText("Phone");
 
         txtPhone.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
+        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPhoneKeyReleased(evt);
             }
         });
 
@@ -146,9 +143,9 @@ public class ContactForm extends javax.swing.JFrame {
         emailLabel.setText("Email");
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
             }
         });
 
@@ -181,10 +178,11 @@ public class ContactForm extends javax.swing.JFrame {
                         .addComponent(phoneLabel)))
                 .addGap(18, 18, 18)
                 .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(lowerPanelLayout.createSequentialGroup()
-                        .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPhone)
-                            .addComponent(txtFirstName))
+                        .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(lowerPanelLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -195,13 +193,12 @@ public class ContactForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLastName)
-                            .addComponent(txtEmail)))
-                    .addComponent(jScrollPane1))
+                            .addComponent(txtEmail))))
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lowerPanelLayout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
+                .addContainerGap(265, Short.MAX_VALUE)
                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         lowerPanelLayout.setVerticalGroup(
             lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,13 +215,13 @@ public class ContactForm extends javax.swing.JFrame {
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addGroup(lowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressLabel)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,7 +229,10 @@ public class ContactForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(upperPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,53 +246,88 @@ public class ContactForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameActionPerformed
-
-    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameActionPerformed
-
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        // TODO add your handling code here:
-        if(editMode){
-         // update   
-         contact.setFirstName(txtFirstName.getText());
-         contact.setLastName(txtLastName.getText());
-         contact.setPhone(txtPhone.getText());
-         contact.setEmail(txtEmail.getText());
-         contact.setAddress(txtAddress.getText());
+
+        if (!validateAll()) {
+            JOptionPane.showMessageDialog(this, "PLS ENTER VALID ENTRY");
+            return;
+        }
+        if (editMode) {
+            // update   
+            contact.setFirstName(txtFirstName.getText());
+            contact.setLastName(txtLastName.getText());
+            contact.setPhone(txtPhone.getText());
+            contact.setEmail(txtEmail.getText());
+            contact.setAddress(txtAddress.getText());
             ContactList.update(contact);
             frame.updateTable();
-        }else{
-         // insert
-         Random rand = new Random();
-         
-         contact = new Contact(
-                 rand.nextInt(0,1000000),
-                 txtFirstName.getText(),
-                 txtLastName.getText(),
-                 txtPhone.getText(),
-                 txtEmail.getText(),
-                 txtAddress.getText()
-         );
-         
-         ContactList.create(contact);
-         frame.updateTable();
+        } else {
+            // insert
+            Random rand = new Random();
+
+            contact = new Contact(
+                    rand.nextInt(0, 1000000),
+                    txtFirstName.getText(),
+                    txtLastName.getText(),
+                    txtPhone.getText(),
+                    txtEmail.getText(),
+                    txtAddress.getText()
+            );
+
+            ContactList.create(contact);
+            frame.updateTable();
         }
         this.dispose();
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    
+    public boolean validateAll() {
+        if (!ValidationUtil.isValidPhone(txtPhone.getText())
+                || !ValidationUtil.isValidEmail(txtEmail.getText())
+                || txtLastName.getText().isEmpty()
+                ||txtFirstName.getText().isEmpty() ){
+
+            return false;
+        } else {
+            return false;
+        }
+    }
+    private void txtPhoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyReleased
+        if (!ValidationUtil.isValidPhone(txtPhone.getText())) {
+            txtPhone.setBackground(new Color(255, 102, 102));
+
+        } else {
+            txtPhone.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_txtPhoneKeyReleased
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        if (!ValidationUtil.isValidEmail(txtEmail.getText())) {
+            txtEmail.setBackground(new Color(255, 102, 102));
+
+        } else {
+            txtEmail.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_txtEmailKeyReleased
+
+    private void txtFirstNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyReleased
+        if (txtFirstName.getText().isEmpty()) {
+            txtFirstName.setBackground(new Color(255, 102, 102));
+
+        } else {
+            txtFirstName.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_txtFirstNameKeyReleased
+
+    private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
+        if (txtLastName.getText().isEmpty()) {
+            txtLastName.setBackground(new Color(255, 102, 102));
+
+        } else {
+            txtLastName.setBackground(Color.WHITE);
+        }
+    }//GEN-LAST:event_txtLastNameKeyReleased
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel contactFormTitle;

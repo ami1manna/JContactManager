@@ -13,6 +13,8 @@ import java.util.regex.Pattern;
  * @author Lenovo
  */
 public class ValidationUtil {
+    
+  
     private ValidationUtil(){
         throw new UnsupportedOperationException("Utility CLass");
     }
@@ -38,5 +40,6 @@ public class ValidationUtil {
         
         return matcher.matches();
     }
+   
    
 }
