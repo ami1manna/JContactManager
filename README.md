@@ -1,9 +1,13 @@
 # JContactManager
 
 A Java-based desktop application for managing personal and professional contacts with a user-friendly interface.
-![image](https://github.com/user-attachments/assets/e3349b8e-6f40-444c-b9aa-c49412a27c76)
+<table style="width:100%;">
+  <tr>
+    <td style="width:50%;"><img src="https://github.com/user-attachments/assets/13d71389-f252-4747-aadd-0ec480499036" style="width:100%;"/></td>
+    <td style="width:50%;"><img src="https://github.com/user-attachments/assets/71e3e799-e1ae-40c9-96e6-3dedff281dc8" style="width:100%;"/></td>
+  </tr>
+</table>
 
-![image](https://github.com/user-attachments/assets/96c5d798-b821-477d-a835-5bb2e7ce9468)
 
 ![JContactManager](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
