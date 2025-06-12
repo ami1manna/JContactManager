@@ -1,83 +1,11 @@
 <contact-book>
 	<contact>
-		<contact-id>1016</contact-id>
-		<first-name>Vivek</first-name>
-		<last-name>Chopra</last-name>
-		<phone>9123098765</phone>
-		<email>vivek.chopra@example.com</email>
-		<address>4, Green Park, Bangalore</address>
-	</contact>
-	<contact>
-		<contact-id>1001</contact-id>
-		<first-name>Dhwani</first-name>
-		<last-name>Agarwal</last-name>
-		<phone>9812345678</phone>
-		<email>dhwani.agarwal@example.com</email>
-		<address>123, MG Road, Mumbai</address>
-	</contact>
-	<contact>
-		<contact-id>1006</contact-id>
-		<first-name>Vikram</first-name>
-		<last-name>Gupta</last-name>
-		<phone>8765432109</phone>
-		<email>vikram.gupta@example.com</email>
-		<address>10, Park Street, Kolkata</address>
-	</contact>
-	<contact>
-		<contact-id>1018</contact-id>
-		<first-name>Harish</first-name>
-		<last-name>Desai</last-name>
-		<phone>9012783456</phone>
-		<email>harish.desai@example.com</email>
-		<address>55, Park Street, Kolkata</address>
-	</contact>
-	<contact>
-		<contact-id>1017</contact-id>
-		<first-name>Manisha</first-name>
-		<last-name>Jain</last-name>
-		<phone>9876123456</phone>
-		<email>manisha.jain@example.com</email>
-		<address>12, Riverside, Hyderabad</address>
-	</contact>
-	<contact>
-		<contact-id>1014</contact-id>
-		<first-name>Rajesh</first-name>
-		<last-name>Malhotra</last-name>
-		<phone>8765987654</phone>
-		<email>rajesh.malhotra@example.com</email>
-		<address>3, MG Colony, Delhi</address>
-	</contact>
-	<contact>
-		<contact-id>1007</contact-id>
-		<first-name>Neha</first-name>
-		<last-name>Joshi</last-name>
-		<phone>9012345678</phone>
-		<email>neha.joshi@example.com</email>
-		<address>78, Riverside, Hyderabad</address>
-	</contact>
-	<contact>
-		<contact-id>1013</contact-id>
-		<first-name>Simran</first-name>
-		<last-name>Kaur</last-name>
-		<phone>9876541230</phone>
-		<email>simran.kaur@example.com</email>
-		<address>26, Sector 17, Chandigarh</address>
-	</contact>
-	<contact>
-		<contact-id>1003</contact-id>
-		<first-name>Pampa</first-name>
-		<last-name>Manna</last-name>
-		<phone>7894111230</phone>
-		<email>pampa.manna@gmail.com</email>
-		<address>G2 Evergreen Apt, Pune</address>
-	</contact>
-	<contact>
-		<contact-id>1019</contact-id>
-		<first-name>Neetu</first-name>
-		<last-name>Singh</last-name>
-		<phone>9898123456</phone>
-		<email>neetu.singh@example.com</email>
-		<address>33, Lotus Apartments, Pune</address>
+		<contact-id>1012</contact-id>
+		<first-name>Arjun</first-name>
+		<last-name>Verma</last-name>
+		<phone>9234567890</phone>
+		<email>arjun.verma@example.com</email>
+		<address>7, MG Road, Pune</address>
 	</contact>
 	<contact>
 		<contact-id>1002</contact-id>
@@ -88,36 +16,28 @@
 		<address>Thane</address>
 	</contact>
 	<contact>
-		<contact-id>1011</contact-id>
-		<first-name>Priya</first-name>
-		<last-name>Reddy</last-name>
-		<phone>9123456780</phone>
-		<email>priya.reddy@example.com</email>
-		<address>13, Park Avenue, Chennai</address>
+		<contact-id>1018</contact-id>
+		<first-name>Harish</first-name>
+		<last-name>Desai</last-name>
+		<phone>9012783456</phone>
+		<email>harish.desai@example.com</email>
+		<address>55, Park Street, Kolkata</address>
 	</contact>
 	<contact>
-		<contact-id>1004</contact-id>
-		<first-name>Rohan</first-name>
-		<last-name>Sharma</last-name>
-		<phone>7012345678</phone>
-		<email>rohan.sharma@example.com</email>
-		<address>45, Nehru Nagar, Delhi</address>
+		<contact-id>1001</contact-id>
+		<first-name>Dhwani</first-name>
+		<last-name>Agarwal</last-name>
+		<phone>9812345678</phone>
+		<email>dhwani.agarwal@example.com</email>
+		<address>123, MG Road, Mumbai</address>
 	</contact>
 	<contact>
-		<contact-id>1015</contact-id>
-		<first-name>Neelam</first-name>
-		<last-name>Shah</last-name>
-		<phone>9801234567</phone>
-		<email>neelam.shah@example.com</email>
-		<address>89, Lotus Apartments, Mumbai</address>
-	</contact>
-	<contact>
-		<contact-id>1012</contact-id>
-		<first-name>Arjun</first-name>
-		<last-name>Verma</last-name>
-		<phone>9234567890</phone>
-		<email>arjun.verma@example.com</email>
-		<address>7, MG Road, Pune</address>
+		<contact-id>1017</contact-id>
+		<first-name>Manisha</first-name>
+		<last-name>Jain</last-name>
+		<phone>9876123456</phone>
+		<email>manisha.jain@example.com</email>
+		<address>12, Riverside, Hyderabad</address>
 	</contact>
 	<contact>
 		<contact-id>1009</contact-id>
@@ -128,11 +48,91 @@
 		<address>16, Green Park, Jaipur</address>
 	</contact>
 	<contact>
+		<contact-id>1015</contact-id>
+		<first-name>Neelam</first-name>
+		<last-name>Shah</last-name>
+		<phone>9801234567</phone>
+		<email>neelam.shah@example.com</email>
+		<address>89, Lotus Apartments, Mumbai</address>
+	</contact>
+	<contact>
+		<contact-id>1019</contact-id>
+		<first-name>Neetu</first-name>
+		<last-name>Singh</last-name>
+		<phone>9898123456</phone>
+		<email>neetu.singh@example.com</email>
+		<address>33, Lotus Apartments, Pune</address>
+	</contact>
+	<contact>
+		<contact-id>1003</contact-id>
+		<first-name>Pampa</first-name>
+		<last-name>Manna</last-name>
+		<phone>7894111230</phone>
+		<email>pampa.manna@gmail.com</email>
+		<address>G2 Evergreen Apt, Pune</address>
+	</contact>
+	<contact>
+		<contact-id>1007</contact-id>
+		<first-name>Neha</first-name>
+		<last-name>Joshi</last-name>
+		<phone>9012345678</phone>
+		<email>neha.joshi@example.com</email>
+		<address>78, Riverside, Hyderabad</address>
+	</contact>
+	<contact>
+		<contact-id>1011</contact-id>
+		<first-name>Priya</first-name>
+		<last-name>Reddy</last-name>
+		<phone>9123456780</phone>
+		<email>priya.reddy@example.com</email>
+		<address>13, Park Avenue, Chennai</address>
+	</contact>
+	<contact>
 		<contact-id>663977</contact-id>
 		<first-name>NewAccount</first-name>
 		<last-name>Surname</last-name>
 		<phone>9819111111</phone>
 		<email>amitamama@gmail.com</email>
 		<address>ABCDEFGHJKAX</address>
+	</contact>
+	<contact>
+		<contact-id>1014</contact-id>
+		<first-name>Rajesh</first-name>
+		<last-name>Malhotra</last-name>
+		<phone>8765987654</phone>
+		<email>rajesh.malhotra@example.com</email>
+		<address>3, MG Colony, Delhi</address>
+	</contact>
+	<contact>
+		<contact-id>1013</contact-id>
+		<first-name>Simran</first-name>
+		<last-name>Kaur</last-name>
+		<phone>9876541230</phone>
+		<email>simran.kaur@example.com</email>
+		<address>26, Sector 17, Chandigarh</address>
+	</contact>
+	<contact>
+		<contact-id>1004</contact-id>
+		<first-name>Rohan</first-name>
+		<last-name>Sharma</last-name>
+		<phone>7012345678</phone>
+		<email>rohan.sharma@example.com</email>
+		<address>45, Nehru Nagar, Delhi</address>
+	</contact>
+	<contact>
+		<contact-id>1006</contact-id>
+		<first-name>Vikram</first-name>
+		<last-name>Gupta</last-name>
+		<phone>8765432109</phone>
+		<email>vikram.gupta@example.com</email>
+		<address>10, Park Street, Kolkata</address>
+	</contact>
+	<contact>
+		<contact-id>1016</contact-id>
+		<first-name>Vivek</first-name>
+		<last-name>Chopra</last-name>
+		<phone>9123098765</phone>
+		<email>vivek.chopra@example.com</email>
+		<address>4, Green Park, Bangalore</address>
 	</contact>
 </contact-book>

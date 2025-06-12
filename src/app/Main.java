@@ -8,7 +8,6 @@ import models.Contact;
 import models.ContactList;
 import ui.ContactForm;
 import util.ContactComparators;
-import util.SearchUtil;
 import util.Util;
 import util.SortUtil;
 
@@ -336,16 +335,16 @@ public class Main extends javax.swing.JFrame {
         updateTable();
     }// GEN-LAST:event_sortComboBoxActionPerformed
 
-    private void searchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_searchTextFieldKeyReleased
-        String text = searchTextField.getText();
-        if (text.trim().equals("")) {
-            updateTable();
+    private void searchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {
+        String keyword = searchTextField.getText().trim();
+        if (keyword.isEmpty()) {
+            updateTable(); // Show full list
         } else {
-            ArrayList<Contact> list = SearchUtil.searchAll(text);
-            updateTable(list);
+            ArrayList<Contact> filteredList = ContactList.searchContacts(keyword);
+            updateTable(filteredList);
         }
-
-    }// GEN-LAST:event_searchTextFieldKeyReleased
+    }
+    
 
     /**
      * @param args the command line arguments
