@@ -6,8 +6,9 @@
             <file>file:/D:/Amit/JavaProjects/JContactManager/src/ui/ContactForm.java</file>
             <file>file:/D:/Amit/JavaProjects/JContactManager/src/app/Main.java</file>
             <file>file:/D:/Amit/JavaProjects/JContactManager/src/util/ContactComparators.java</file>
+            <file>file:/D:/Amit/JavaProjects/JContactManager/src/models/ContactList.java</file>
             <file>file:/D:/Amit/JavaProjects/JContactManager/src/util/SortUtil.java</file>
-            <file>file:/D:/Amit/JavaProjects/JContactManager/contacts.xml</file>
+            <file>file:/D:/Amit/JavaProjects/JContactManager/src/util/SearchUtil.java</file>
         </group>
     </open-files>
 </project-private>

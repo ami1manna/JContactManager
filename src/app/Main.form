@@ -256,6 +256,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="searchTextField">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchTextFieldKeyReleased"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

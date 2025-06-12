@@ -57,4 +57,82 @@ public class ContactList {
         return null;
     }
 
+    /**
+     * Search contacts by any field containing the search term
+     * @param searchTerm The term to search for
+     * @return List of contacts matching the search term
+     */
+    public static ArrayList<Contact> searchContacts(String searchTerm) {
+        ArrayList<Contact> results = new ArrayList<>();
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            return results;
+        }
+        
+        searchTerm = searchTerm.toLowerCase().trim();
+        
+        for (Contact contact : contacts) {
+            if (matchesSearchTerm(contact, searchTerm)) {
+                results.add(contact);
+            }
+        }
+        return results;
+    }
+    
+    /**
+     * Check if a contact matches the search term in any field
+     */
+    private static boolean matchesSearchTerm(Contact contact, String searchTerm) {
+        return (contact.getFirstName() != null && contact.getFirstName().toLowerCase().contains(searchTerm)) ||
+               (contact.getLastName() != null && contact.getLastName().toLowerCase().contains(searchTerm)) ||
+               (contact.getPhone() != null && contact.getPhone().toLowerCase().contains(searchTerm)) ||
+               (contact.getEmail() != null && contact.getEmail().toLowerCase().contains(searchTerm)) ||
+               (contact.getAddress() != null && contact.getAddress().toLowerCase().contains(searchTerm));
+    }
+    
+    /**
+     * Search contacts by specific field
+     * @param field The field to search in (firstName, lastName, phone, email, address)
+     * @param searchTerm The term to search for
+     * @return List of contacts matching the search criteria
+     */
+    public static ArrayList<Contact> searchContactsByField(String field, String searchTerm) {
+        ArrayList<Contact> results = new ArrayList<>();
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            return results;
+        }
+        
+        searchTerm = searchTerm.toLowerCase().trim();
+        
+        for (Contact contact : contacts) {
+            switch (field.toLowerCase()) {
+                case "firstname":
+                    if (contact.getFirstName() != null && contact.getFirstName().toLowerCase().contains(searchTerm)) {
+                        results.add(contact);
+                    }
+                    break;
+                case "lastname":
+                    if (contact.getLastName() != null && contact.getLastName().toLowerCase().contains(searchTerm)) {
+                        results.add(contact);
+                    }
+                    break;
+                case "phone":
+                    if (contact.getPhone() != null && contact.getPhone().toLowerCase().contains(searchTerm)) {
+                        results.add(contact);
+                    }
+                    break;
+                case "email":
+                    if (contact.getEmail() != null && contact.getEmail().toLowerCase().contains(searchTerm)) {
+                        results.add(contact);
+                    }
+                    break;
+                case "address":
+                    if (contact.getAddress() != null && contact.getAddress().toLowerCase().contains(searchTerm)) {
+                        results.add(contact);
+                    }
+                    break;
+            }
+        }
+        return results;
+    }
+
 }
